@@ -1,5 +1,5 @@
 # ReqPat
-## Efficient Documentation of High-Quality Requirements using Controlled Natural Language
+### Efficient Documentation of High-Quality Requirements using Controlled Natural Language
 
 ### Motivation
 - Increasing complexity of intelligent technical systems
