@@ -10,7 +10,7 @@
 
 Tested with Eclipse Release "2019-06"
 
-1. Download, install and run [Eclipse Modeling Tools 2019-06](https://www.eclipse.org/downloads/)
+1. Download, install and run [Eclipse Modeling Tools 2019-06](https://www.eclipse.org/downloads/packages/)
 2. Add the following update sites using the "Install new software" menu entry in the "Help" menu
     - RMF Update Site: http://download.eclipse.org/rmf/updates/releases
     - UnitTests: https://dl.bintray.com/itemis/generic/xtext-testing/updates/
