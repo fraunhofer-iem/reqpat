@@ -1,0 +1,304 @@
+/*
+ * @author Roman Trentinaglia, $LastChangedBy: fkl-rt $
+ * @version $Rev: 276 $, $Date: 2016-06-03 16:15:58 +0200 (Fr, 03 Jun 2016) $
+ */
+import demo : 'http://de.fraunhofer.iem.reqpat.demo.model'
+
+package demo
+
+/*
+ * Top-level function
+ */
+context AnalysisFunctionDefinition
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+def: allPurposes : Set(AnalysisFunctionPurpose) = AnalysisFunctionPurpose.allInstances()
+def: allIncomingDefinitions : Set(IncomingInformationDefinition) = IncomingInformationDefinition.allInstances()
+def: allOutgoingDefinitions : Set(OutgoingInformationDefinition) = OutgoingInformationDefinition.allInstances()
+
+def: getAnalysisFunctionName(a : OclAny) : String = if functionIsInvalid(a)
+	then '<invalid function reference>'
+	else a.oclAsType(model::AnalysisFunction).name.toString() /**/
+endif
+
+def: setToString(s : Set(NamedElement)) : String
+	= replaceSetStrings(s.name->asSet()->toString().replaceFirst('Set', ''))
+def: replaceSetStrings(s : String) : String
+	= s.substring(2,s.size()).replaceFirst('}', '')/**/
+
+def: functionIsInvalid(a : OclAny) : Boolean = a.oclAsType(model::AnalysisFunction).name.oclIsUndefined() /* */
+
+def: functionHasPurpose() : Boolean =
+	allPurposes->select(p : AnalysisFunctionPurpose | p.analysisFunction.name = self.analysisFunction.name)->notEmpty()
+	
+def: functionHasIncomingInformation() : Boolean = 
+	allIncomingDefinitions.informationList->notEmpty()
+	
+def: functionHasOutgoingInformation() : Boolean = 
+	allOutgoingDefinitions.informationList->notEmpty()
+	
+inv TestPurposeMatching('The top-level function '+getAnalysisFunctionName(self.analysisFunction)+' has no purpose.')
+	: functionHasPurpose()
+	
+inv TestIncomingInfoMatching('The top-level function '+getAnalysisFunctionName(self.analysisFunction)+' receives no inputs!')
+	: functionHasIncomingInformation()
+	
+inv TestOutgoingInfoMatching('The top-level function '+getAnalysisFunctionName(self.analysisFunction)+' sends no outputs!')
+	: functionHasOutgoingInformation()
+
+/*
+ * Sub functions
+ */
+context SubAnalysisFunctionDefinition
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+def: allPurposes : Set(AnalysisFunctionPurpose) = AnalysisFunctionPurpose.allInstances()
+def: analysisFunctionName : String = AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+
+def: functionHasPurpose() : Boolean =
+	allPurposes->select(p : AnalysisFunctionPurpose | p.analysisFunction.name = analysisFunctionName)->notEmpty()
+	
+inv TestPurposeMatching('The function '
+	+AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+	+' has no purpose.'
+)
+	: functionHasPurpose()
+
+/*
+ * Received information
+ */
+context IncomingInformationDefinition
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+/* Parameter definition */
+def: allSubFunctions : Set(SubAnalysisFunctionDefinition) = SubAnalysisFunctionDefinition.allInstances()->asSet()
+def: analysisFunctionName : String = AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+
+/* 
+ * Helper functions
+ */
+def: getUnusedInputs(definitions : Set(Information), usages : Set(Information)) : Set(Information) = 
+	definitions->select(d : Information | usages.name->excludes(d.name))->asSet()
+/* Find information from our information list that is receiving information instead of using it */
+def: getReceivingInformation() : Set(Information) =
+	self.informationList->asSet()
+/* Get all subfunctions that have our function as parent */
+def: getDirectSubfunctions(parent : AnalysisFunction) : Set(AnalysisFunction) =
+	allSubFunctions->select(sub : SubAnalysisFunctionDefinition | sub.analysisFunction.parentAnalysisFunction = parent).analysisFunction->asSet()
+/* Find all incoming information definitions with an function that is a sub function */
+def: getReceivingSubfunctions() : Set(AnalysisFunction) =
+	allSubFunctions.analysisFunction->select(s : AnalysisFunction | s.name = analysisFunctionName)->asSet()
+/* Get all usages of our subfunctions */
+def: getUsingSubfunctions(subfunctions : Set(AnalysisFunction)) : Set(Information) =
+	InformationUsage.allInstances()->select(i : InformationUsage | subfunctions.name->includes(i.analysisFunction.name)).informationList->asSet()
+
+def: unusedInputs : Set(Information) = getUnusedInputs(self.informationList->asSet(), getUsingSubfunctions(getDirectSubfunctions(self.analysisFunction)))
+/* 
+ * Output strings
+ */
+def: receivingSubFunctionsStr: String = AnalysisFunctionDefinition::setToString(getReceivingSubfunctions()->asSet())
+def: receivingInformationStr: String = AnalysisFunctionDefinition::setToString(getReceivingInformation()->asSet())
+def: unusedInputsStr: String = AnalysisFunctionDefinition::setToString(unusedInputs->asSet())
+
+/* 
+ * Invariants
+ */
+def: TestUnusedInputsStr : String = 'The input(s) '+unusedInputsStr+' of the top-level function '
+		+analysisFunctionName+' are not used by any of its sub-functions!' 
+inv TestUnusedInputs(TestUnusedInputsStr) 
+	: unusedInputs->isEmpty()
+	
+def: HasNoInputsStr : String = 'The top-level function '+analysisFunctionName+' receives no inputs!'
+inv HasNoInputs(HasNoInputsStr)
+	: self.informationList->notEmpty()
+
+def: TestSubFunctionsReceivingInformationStr : String = 'The sub-function '+receivingSubFunctionsStr+
+		' should not receive but use the information '+receivingInformationStr+'!' 
+inv TestSubFunctionsReceivingInformation(TestSubFunctionsReceivingInformationStr)
+	: asError(getReceivingSubfunctions()->isEmpty())
+	
+/*
+ * Sent information
+ */
+context OutgoingInformationDefinition
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+/* Parameter definition */
+def: allSubFunctions : Set(SubAnalysisFunctionDefinition) = SubAnalysisFunctionDefinition.allInstances()->asSet()
+def: analysisFunctionName : String = AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+
+/* 
+ * Helper functions
+ */
+def: getUnusedOutputs(definitions : Set(Information), usages : Set(Information)) : Set(Information) = 
+	definitions->select(d : Information | usages.name->excludes(d.name))->asSet()
+/* Find information from our information list that is sending information instead of creating it */
+def: getSendingInformation() : Set(Information) =
+	self.informationList->asSet()
+/* Get all subfunctions that have our function as parent */
+def: getDirectSubfunctions(parent : AnalysisFunction) : Set(AnalysisFunction) =
+	allSubFunctions->select(sub : SubAnalysisFunctionDefinition | sub.analysisFunction.parentAnalysisFunction = parent).analysisFunction->asSet()
+/* Find all outgoing information definitions with an function that is a sub function */
+def: getSendingSubfunctions() : Set(AnalysisFunction) =
+	allSubFunctions.analysisFunction->select(s : AnalysisFunction | s.name = self.analysisFunction.name)->asSet()
+/* Get all creating subfunctions */
+def: getCreatingSubfunctions(subfunctions : Set(AnalysisFunction)) : Set(Information) =
+	InformationCreation.allInstances()->select(i : InformationCreation | subfunctions.name->includes(i.analysisFunction.name)).informationList->asSet()
+	
+def: unusedOutputs : Set(Information) = getUnusedOutputs(self.informationList->asSet(), getCreatingSubfunctions(getDirectSubfunctions(self.analysisFunction)))
+/* 
+ * Output strings
+ */
+def: unusedOutputsStr: String = AnalysisFunctionDefinition::setToString(unusedOutputs->asSet())
+def: sendingInformationStr: String = AnalysisFunctionDefinition::setToString(getSendingInformation()->asSet())
+def: sendingSubFunctionsStr: String = AnalysisFunctionDefinition::setToString(getSendingSubfunctions()->asSet())
+
+/* 
+ * Invariants
+ */
+inv TestUnusedOutputs('The output(s) '+unusedOutputsStr+' of the top-level function '
+	+analysisFunctionName+' are not created by any of its sub-functions!'
+) 
+	: unusedOutputs->isEmpty()
+ 
+inv HasNoOutputs('The top-level function '+analysisFunctionName+' sends no outputs!'
+) : self.informationList->notEmpty()
+inv TestSubFunctionsCreatingOutputs('The sub-function '+sendingSubFunctionsStr+
+	' should not send but create the information '+sendingInformationStr+'!') 
+	   : asError(getSendingSubfunctions()->isEmpty() )
+
+/*
+ * Used information
+ */
+context InformationUsage
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+def: allDefinitions : Set(IncomingInformationDefinition) = IncomingInformationDefinition.allInstances()->asSet()
+def: parentFunction : AnalysisFunction = self.analysisFunction.parentAnalysisFunction
+def: allUsages : Set(InformationUsage) = InformationUsage.allInstances()->asSet()
+def: analysisFunctionName : String = AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+
+def: parentDefinitions : Set(Information)
+	= allDefinitions->select(d : IncomingInformationDefinition | d.analysisFunction = parentFunction).informationList->asSet()
+def: parentUsages : Set(Information)
+	= allUsages->select(u : InformationUsage | u.analysisFunction = parentFunction).informationList->asSet()
+def: analysisFunctionsWithoutChildren : Set(AnalysisFunction) /* Get all AnalysisFunctions that are not parent of another AnalysisFunction */
+	= AnalysisFunction.allInstances()->excludingAll(AnalysisFunction.allInstances().parentAnalysisFunction)->asSet()
+def: childUsages : Set(Information)
+	= allUsages->select(u : InformationUsage | /* Choose the InformationUsages that have our AnalysisFunction as parent */
+		u.analysisFunction.parentAnalysisFunction = self.analysisFunction
+	).informationList->asSet()
+		->excludingAll( /* exclude all InformationUsages that have a AnalysisFunction without children */
+			allUsages->select(u : InformationUsage | 
+				analysisFunctionsWithoutChildren.name->includes(u.analysisFunction.name)
+			)
+		)
+
+
+/* Select the usages whose name is not in the definition (= usages that are not defined) */
+def: getUsagesNotInDefinition(definitions : Set(Information), usages : Set(Information)) : Set(Information) =
+	usages->select(u : Information | definitions.name->excludes(u.name))->asSet()
+/* Parent usages */
+def: getParentInformation() : Set(Information) =
+	parentDefinitions->union(parentUsages)
+
+
+/* Output strings */	
+def: wrongParentUsagesStr: String 
+	= AnalysisFunctionDefinition::setToString(getUsagesNotInDefinition(getParentInformation(), self.informationList->asSet())->asSet())
+def: wrongChildUsagesStr: String 
+	= AnalysisFunctionDefinition::setToString(getUsagesNotInDefinition(childUsages, self.informationList->asSet())->asSet())
+	
+/* Invariants */
+inv TestParentMatching('The input(s) '+wrongParentUsagesStr+' of the function '
+	+analysisFunctionName
+	+' is/are not received/used by its parent function ' 
+	+AnalysisFunctionDefinition::getAnalysisFunctionName(parentFunction)+'!'
+) 
+	: getUsagesNotInDefinition(getParentInformation(), self.informationList->asSet())->isEmpty() 
+inv TestChildMatching('The input(s) '+wrongChildUsagesStr+' of the function '
+	+analysisFunctionName
+	+' is/are not used by any of its sub-functions!'
+) 
+	: 
+	/* throw an error if there are elements in our informationlist 
+	 * that are not used by our children
+	 */
+		(getUsagesNotInDefinition(childUsages, self.informationList->asSet())->isEmpty() 
+		or childUsages->isEmpty()) /* or current AnalysisFunction is a leaf */
+
+
+inv TestNoInputUsage('The function '+ analysisFunctionName +' uses no inputs!')
+	: self.informationList->notEmpty()
+
+/*
+ * Created information
+ */
+context InformationCreation
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+def: allDefinitions : Set(OutgoingInformationDefinition) = OutgoingInformationDefinition.allInstances()->asSet()
+def: parentFunction : AnalysisFunction = self.analysisFunction.parentAnalysisFunction
+def: allCreations : Set(InformationCreation) = InformationCreation.allInstances()->asSet()
+def: analysisFunctionName : String = AnalysisFunctionDefinition::getAnalysisFunctionName(self.analysisFunction)
+
+def: parentDefinitions : Set(Information)
+	= allDefinitions->select(d : OutgoingInformationDefinition | d.analysisFunction = parentFunction).informationList->asSet()
+def: parentCreations : Set(Information)
+	= allCreations->select(u : InformationCreation | u.analysisFunction = parentFunction).informationList->asSet()
+def: analysisFunctionsWithoutChildren : Set(AnalysisFunction) /* Get all AnalysisFunctions that are not parent of another AnalysisFunction */
+	= AnalysisFunction.allInstances()->excludingAll(AnalysisFunction.allInstances().parentAnalysisFunction)->asSet()
+def: childCreations : Set(Information)
+	= allCreations->select(u : InformationCreation | /* Choose the InformationCreations that have our AnalysisFunction as parent */
+		u.analysisFunction.parentAnalysisFunction = self.analysisFunction
+	).informationList->asSet()
+		->excludingAll( /* exclude all InformationUsages that have a AnalysisFunction without children */
+			allCreations->select(u : InformationCreation | 
+				analysisFunctionsWithoutChildren.name->includes(u.analysisFunction.name)
+			)
+		)
+
+
+/* Select the usages whose name is not in the definition (= usages that are not defined) */
+def: getCreationsNotInDefinition(definitions : Set(Information), creations : Set(Information)) : Set(Information) =
+	creations->select(u : Information | definitions.name->excludes(u.name))->asSet()
+/* Parent usages */
+def: getParentInformation() : Set(Information) =
+	parentDefinitions->union(parentCreations)
+
+
+/* Output strings */	
+def: wrongParentCreationsStr: String 
+	= AnalysisFunctionDefinition::setToString(getCreationsNotInDefinition(getParentInformation(), self.informationList->asSet())->asSet())
+def: wrongChildCreationsStr: String 
+	= AnalysisFunctionDefinition::setToString(getCreationsNotInDefinition(childCreations, self.informationList->asSet())->asSet())
+	
+/* Invariants */
+inv TestParentMatching('The output(s) '+wrongParentCreationsStr+' of the function '
+	+analysisFunctionName
+	+' is/are not sent/created by its parent function '
+	+AnalysisFunctionDefinition::getAnalysisFunctionName(parentFunction)+'!'
+) 
+	: getCreationsNotInDefinition(getParentInformation(), self.informationList->asSet())->isEmpty()
+
+inv TestChildMatching('The output(s) '+wrongChildCreationsStr+' of the function '
+	+analysisFunctionName
+	+' is/are not created by any of its sub-functions!'
+) 
+	: 
+	/* throw an error if there are elements in our informationlist 
+	 * that are not created by our children
+	 */
+		getCreationsNotInDefinition(childCreations, self.informationList->asSet())->isEmpty() 
+		or childCreations->isEmpty() /* or current AnalysisFunction is a leaf */
+
+inv TestNoOutputCreation('The function '+analysisFunctionName+' creates no outputs!')
+	: self.informationList->notEmpty()
+	
+endpackage

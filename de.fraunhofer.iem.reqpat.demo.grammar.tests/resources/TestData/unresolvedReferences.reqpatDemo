@@ -1,0 +1,11 @@
+{[RP][AB123]The top-level analysis function is called AnalysisFunction1 .}
+{[RP][AB123]The analysis function AnalysisFunction has the following purpose: "this Purpose contains 
+	a linebreak which should show up" .
+} 
+{[RP][AB123]The functional device theFunctionalDevice1 has the following purpose: "the functional device purpose" .}
+{[RP][AB123]The analysis function theSubAnalysisFunction1 is a subfunction of the analysis function AnalysisFunction .}
+{[RP][AB123]The analysis function theSubAnalysisFunction1 has the following purpose: "purpose of af1" .}
+{[RP][AB123]The following information is sent from the analysis function AnalysisFunction to the functional device theFunctionalDevice: Info1, Info2 . }
+{[RP][AB123]The following information is received by the analysis function AnalysisFunction from the functional device theFunctionalDevice: Info3, Info4 .}
+{[RP][AB123]The following information is created by the analysis function theSubAnalysisFunction: Info .}	
+{[RP][AB123]The following information is used by the analysis function theSubAnalysisFunction: Info .}

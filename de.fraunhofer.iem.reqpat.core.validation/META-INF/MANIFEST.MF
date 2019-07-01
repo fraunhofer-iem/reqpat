@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Validation
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.core.validation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.iem.reqpat.core.validation.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext;bundle-version="2.3.1",
+ de.fraunhofer.iem.reqpat.core;bundle-version="1.0.0",
+ de.fraunhofer.iem.reqpat.core.model;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.fraunhofer.iem.reqpat.core.validation.util
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

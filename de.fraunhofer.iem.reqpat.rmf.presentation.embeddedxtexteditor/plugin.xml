@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.provider.EmbeddedXtextEditorItemProviderAdapterFactory"
+            uri="http://de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.EmbeddedXtextEditorPackage"
+            genModel="model/embeddedxtexteditor.genmodel"
+            uri="http://de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor">
+      </package>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.ReqPatPreferencesPage"
+            id="de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.ReqPatPreferencesPage"
+            name="ReqPat">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.rmf.reqif10.pror.editor.presentation">
+      <presentation
+            name="XtextCellEditorService"
+            service="de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.ui.XtextPresentationService">
+      </presentation>
+   </extension>
+
+</plugin>

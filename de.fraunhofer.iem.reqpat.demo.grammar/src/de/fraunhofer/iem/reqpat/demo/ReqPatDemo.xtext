@@ -1,0 +1,88 @@
+/*
+ * @author Markus Fockel, $LastChangedBy: fkl $
+ * @version $Rev: 46 $, $Date: 2013-07-23 17:51:55 +0200 (Di, 23 Jul 2013) $
+ */
+grammar de.fraunhofer.iem.reqpat.demo.ReqPatDemo with de.fraunhofer.iem.reqpat.core.ReqPat
+
+//import "http://de.fraunhofer.iem.reqpat.demo.model"
+import "platform:/resource/de.fraunhofer.iem.reqpat.demo.model/model/reqpatDemo.ecore"
+import "platform:/resource/de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore"
+
+//Copied from core grammar
+Root returns Specification:
+	{Specification}
+	(specObjects+=SpecObj)+;
+
+//Overridden from core grammar as starting point for this grammar.
+RequirementPattern returns RequirementPattern:
+	(AnalysisFunctionDef | TheAnalysisFunction | FunctionalDeviceDef | TheFollowingInformation) ('.')?;
+
+TheAnalysisFunction returns RequirementPattern:
+	'The function' (SubAnalysisFunctionDef | AnalysisFunctionPurp);
+
+TheFollowingInformation returns RequirementPattern:
+	'The following information'
+	(IncomingInformationDef |
+	OutgoingInformationDef |
+	InformationUsage |
+	InformationCreation);
+
+AnalysisFunctionDef returns AnalysisFunctionDefinition:
+	{AnalysisFunctionDefinition}
+	'The top-level function is called'
+	analysisFunction=AnalysisFunction;
+
+AnalysisFunctionPurp returns AnalysisFunctionPurpose:
+	{AnalysisFunctionPurpose} //'The function'
+	analysisFunction=[AnalysisFunction] 'has the following purpose:' purpose=STRING;
+
+FunctionalDeviceDef returns FunctionalDeviceDefinition:
+	{FunctionalDeviceDefinition}
+	'The functional device' functionalDevice=FunctionalDevice;
+
+FunctionalDevice returns FunctionalDevice:
+	{FunctionalDevice}
+	name=ID 'has the following purpose:' purpose=STRING;
+
+SubAnalysisFunctionDef returns SubAnalysisFunctionDefinition:
+	{SubAnalysisFunctionDefinition}
+	//'The function'
+	analysisFunction=SubAnalysisFunction;
+
+SubAnalysisFunction returns AnalysisFunction:
+	{AnalysisFunction}
+	name=ID 'is a subfunction of the function' parentAnalysisFunction=[AnalysisFunction];
+
+IncomingInformationDef returns IncomingInformationDefinition:
+	{IncomingInformationDefinition}
+	//	'The following information'
+	'is received by the function' analysisFunction=[AnalysisFunction]
+	('from the functional device' functionalDevice=[FunctionalDevice])? ':' informationList+=Information (','
+	informationList+=Information)*;
+
+OutgoingInformationDef returns OutgoingInformationDefinition:
+	{OutgoingInformationDefinition}
+	//	'The following information'
+	'is sent from the function' analysisFunction=[AnalysisFunction]
+	('to the functional device' functionalDevice=[FunctionalDevice])? ':' informationList+=Information (','
+	informationList+=Information)*;
+
+InformationUsage returns InformationUsage:
+	{InformationUsage}
+	//	'The following information'
+	'is used by the function' analysisFunction=[AnalysisFunction] ':'
+	informationList+=[Information] (',' informationList+=[Information])*;
+
+InformationCreation returns InformationCreation:
+	{InformationCreation}
+	//	'The following information'
+	'is created by the function' analysisFunction=[AnalysisFunction] ':'
+	informationList+=[Information] (',' informationList+=[Information])*;
+
+AnalysisFunction returns AnalysisFunction:
+	{AnalysisFunction}
+	name=ID;
+
+Information returns Information:
+	{Information}
+	name=ID;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+	<template id="AFDef" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false" description="defines the top-level function" enabled="true"
+		name="Top-level function">The top-level function is called ${NAME}.</template>
+	<template id="AFPurpose" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false" description="describes a function's purpose" enabled="true"
+		name="Function purpose">The function ${NAME} has the following purpose: "${PURPOSE}".</template>
+	<template id="FDDef" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false" description="defines a new functional device" enabled="true"
+		name="Functional device">The functional device ${NAME} has the following purpose: "${PURPOSE}".</template>
+	<template id="IIDef2" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="defines the information received by the top-level function"
+		enabled="true" name="Input of top-level function">The following information is received by the function ${ANALYSISFUNCTION}: ${INFORMATIONLIST}.</template>
+	<template id="IIDef" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="defines the information received by the top-level function from a functional device"
+		enabled="true" name="Input from functional device">The following information is received by the function ${ANALYSISFUNCTION} from the functional device ${FUNCTIONALDEVICE}: ${INFORMATIONLIST}.</template>
+	<template id="OIDef2" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="defines the information sent from the top-level function"
+		enabled="true" name="Output of top-level function">The following information is sent from the function ${ANALYSISFUNCTION}: ${INFORMATIONLIST}.</template>
+	<template id="OIDef" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="defines the information sent from the top-level function to a functional device"
+		enabled="true" name="Output to functional device">The following information is sent from the function ${ANALYSISFUNCTION} to the functional device ${FUNCTIONALDEVICE}: ${INFORMATIONLIST}.</template>
+	<template id="SAFDef" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false" description="defines a new sub-function"
+		enabled="true" name="Sub-function">The function ${NAME} is a subfunction of the function ${PARENTANALYSISFUNCTION}.</template>
+	<template id="InfoUsage" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="states which information is used by a (sub-) function"
+		enabled="true" name="Input of sub-function">The following information is used by the function ${ANALYSISFUNCTION}: ${INFORMATIONLIST}.</template>
+	<template id="InfoCreation" autoinsert="true"
+		context="de.fraunhofer.iem.reqpat.demo.ReqPatDemo.RequirementPattern"
+		deleted="false"
+		description="states which information is created by a sub-function"
+		enabled="true" name="Output of sub-function">The following information is created by the function ${ANALYSISFUNCTION}: ${INFORMATIONLIST}.</template>
+</templates>

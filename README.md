@@ -6,6 +6,24 @@
 - Increasing size of requirements specifications
 - Required compliance to domain-specific development standards
 
+### Installation
+
+Tested with Eclipse Release "2019-06"
+
+1. Download, install and run [Eclipse Modeling Tools 2019-06][https://www.eclipse.org/downloads/]
+2. Add the following update sites using the "Install new software" menu entry in the "Help" menu
+    - RMF Update Site: http://download.eclipse.org/rmf/updates/releases
+    - UnitTests: https://dl.bintray.com/itemis/generic/xtext-testing/updates/
+    - Sphinx: http://download.eclipse.org/sphinx/releases/0.11.x
+3. Install the following extensions:
+	- XText SDK
+	- RMF SDK
+	- OCL Examples and Editors SDK
+	- XText Testing (for the unit tests)
+	- Sphinx
+4. Clone the ReqPat Git Repository into your Eclipse workspace
+5. Create a new "Run Configuration" in Eclipse of type "Eclipse Application"
+
 ### Benefits
 - High-quality requirements by design
 - Reduced effort for requirements reviews and transition to model-based development

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="de.fraunhofer.iem.reqpat.rmf.ui.problemmarker"
+         name="ReqPat Problemmarker"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.eclipse.rmf.pror.reqif10.SpecificationEditorContribution"
+            targetID="org.eclipse.rmf.reqif10.pror.SpecificationEditor">
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateFreeTextRequirementAsSibling"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsSiblingCommand"
+               icon="icons/addFreeText_child.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsSibling"
+               label="New Sibling (Free Text Requirement)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateRequirementTypeAsSibling"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsSiblingCommand"
+               icon="icons/addReqPat_child.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsSibling"
+               label="New Sibling (Requirement Type)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateHeadingAsSibling"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsSiblingCommand"
+               icon="icons/addHeading_child.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsSibling"
+               label="New Sibling (Heading)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateImageAsSibling"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsSiblingCommand"
+               icon="icons/addImage_child.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsSibling"
+               label="New Sibling (Image)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateFreeTextRequirementAsChild"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsChildCommand"
+               icon="icons/addFreeText_sibling.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsChild"
+               label="New Child (Free Text Requirement)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateRequirementTypeAsChild"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsChildCommand"
+               icon="icons/addReqPat_sibling.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsChild"
+               label="New Child (Requirement Type)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateHeadingAsChild"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsChildCommand"
+               icon="icons/addHeading_sibling.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsChild"
+               label="New Child (Heading)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CreateImageAsChild"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsChildCommand"
+               icon="icons/addImage_sibling.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsChild"
+               label="New Child (Image)"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.InsertTemplate"
+               icon="icons/insertTemplate.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.InsertTemplate"
+               label="Insert Template"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.CheckDocument"
+               icon="icons/check.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.CheckDocument"
+               label="Check Document"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="de.fraunhofer.iem.reqpat.rmf.ui.actions.FindAndReplace"
+               definitionId="de.fraunhofer.iem.reqpat.rmf.ui.FindAndReplaceCommand"
+               icon="icons/findAndReplace.png"
+               id="de.fraunhofer.iem.reqpat.rmf.ui.FindAndReplace"
+               label="Find and Replace"
+               menubarPath="org.eclipse.rmf.reqif10MenuID/additions"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsSiblingCommand"
+            name="New Sibling (Heading)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsChildCommand"
+            name="New Child (Heading)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsSiblingCommand"
+            name="New Sibling (Requirement Type)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsChildCommand"
+            name="New Child (Requirement Type)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsSiblingCommand"
+            name="New Sibling (Free Text Requirement)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsChildCommand"
+            name="New Child (Free Text Requirement)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsSiblingCommand"
+            name="New Sibling (Image)">
+      </command>
+      <command
+            categoryId="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateImageAsChildCommand"
+            name="New Child (Image)">
+      </command>
+      <category
+            id="de.fraunhofer.iem.reqpat.rmf.ui.CreateReqPatModelElements"
+            name="Create ReqPat model elements">
+      </category>
+      <command
+            id="de.fraunhofer.iem.reqpat.rmf.ui.FindAndReplaceCommand"
+            name="Find and Replace">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsSiblingCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+R">
+      </key>
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateRequirementTypeAsChildCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="ALT+R">
+      </key>
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsSiblingCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+E">
+      </key>
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateHeadingAsChildCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="ALT+E">
+      </key>
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsSiblingCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+F">
+      </key>
+      <key
+            commandId="de.fraunhofer.iem.reqpat.rmf.ui.CreateFreeTextRequirementAsChildCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="ALT+F">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.fraunhofer.iem.reqpat.rmf.ui.views.ReqPatProblemsView"
+            icon="icons/check.png"
+            id="de.fraunhofer.iem.reqpat.rmf.ui.ReqPatProblemsView"
+            name="ReqPat Problems"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerSupport">
+      <markerContentGenerator
+            id="de.fraunhofer.iem.reqpat.rmf.ui.ReqPatMarkerGenerator"
+            name="ReqPatMarkerGenerator">
+         <markerTypeReference
+               id="de.fraunhofer.iem.reqpat.rmf.ui.problemmarker">
+         </markerTypeReference>
+         <markerFieldReference 
+         	id="org.eclipse.ui.ide.severityAndDescriptionField"/> 	
+         <markerFieldReference 
+	         id="org.eclipse.ui.ide.locationField"/> 
+         <markerFieldReference 
+	         id="org.eclipse.ui.ide.markerType"/> 
+         <markerFieldReference 
+	         id="org.eclipse.ui.ide.priorityField"/> 
+         <markerFieldReference 
+         	id="org.eclipse.ui.ide.resourceField"/> 
+      </markerContentGenerator>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.fraunhofer.iem.reqpat.rmf.ui.util.RmfPerspectiveFactory"
+            icon="icons/reqPatPerspective.png"
+            id="de.fraunhofer.ipt.em.swt.isae.embeddedxtexteditor.RmfPerspective"
+            name="ReqPat">
+      </perspective>
+   </extension>
+   <extension
+         point="de.fraunhofer.iem.reqpat.core.modules">
+      <module
+            class="de.fraunhofer.iem.reqpat.rmf.ui.modules.RmfExtensionModule">
+      </module>
+   </extension>
+</plugin>

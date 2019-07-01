@@ -1,0 +1,8 @@
+{[RP][AB123]The top-level analysis function is called AnalysisFunction .}
+{[RP][AB123]The top-level analysis function is called AnalysisFunction .}
+{[RP][AB123]The functional device theFunctionalDevice has the following purpose: "the functional device purpose" .}
+{[RP][AB123]The analysis function theSubAnalysisFunction is a subfunction of the analysis function AnalysisFunction .}
+{[RP][AB123]The analysis function theSubAnalysisFunction is a subfunction of the analysis function AnalysisFunction .}
+{[RP][AB123]The analysis function theFunctionalDevice is a subfunction of the analysis function AnalysisFunction .}
+{[RP][AB123]The following information is sent from the analysis function AnalysisFunction to the functional device theFunctionalDevice: Info1, Info1 . }
+{[RP][AB123]The following information is received by the analysis function AnalysisFunction from the functional device theFunctionalDevice: theFunctionalDevice, Info4 .}

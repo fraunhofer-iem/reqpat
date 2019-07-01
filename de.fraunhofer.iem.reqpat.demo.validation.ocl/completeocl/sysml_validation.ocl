@@ -1,0 +1,192 @@
+/*
+ * @author Roman Trentinaglia, $LastChangedBy: fkl $
+ * @version $Rev: 291 $, $Date: 2016-06-28 16:11:43 +0200 (Di, 28 Jun 2016) $
+ */
+import uml : 'http://www.eclipse.org/uml2/5.0.0/UML'
+import SysML : 'http://www.eclipse.org/papyrus/0.7.0/SysML'/**/
+
+package uml
+
+context Model
+
+def: asError(verdict : Boolean) : Boolean = if verdict then true else null endif
+
+def: setToString(s : Set(NamedElement)) : String
+	= replaceSetStrings(s.name->asSet()->toString().replaceFirst('Set', ''))
+def: replaceSetStrings(s : String) : String
+	= s.substring(2,s.size()).replaceFirst('}', '')
+
+/* Functional devices */
+inv TestHasFunctionalPorts('The top-level function ' + Model::setToString(Class::getTopLevel) + ' does not contain corresponding ports to all ports of the functional devices.')
+	: Model::getFunctionalDevices.ownedPort()
+		->select(p : Port | Class::getTopLevel.ownedPort().name->excludes(p.name))
+			->isEmpty()
+			
+def: getFunctionalDevices : Set(Class)
+	= Class::getAllClasses
+		->select(c : Class | 
+			c.ownedAttribute
+				->select(prop | prop.aggregation = AggregationKind::none 
+					or (not prop.oclIsTypeOf(Port) and prop.aggregation = AggregationKind::composite)
+				)->isEmpty()
+		)
+	
+def: matchingPorts(portToMatch : Port) : Sequence(Port) = Class::getTopLevel.ownedPort()->select(p : Port | p.name=portToMatch.name)->asSequence()
+def: getMatchingPort(portToMatch : Port) : Port
+	= if matchingPorts(portToMatch)->notEmpty()
+		then matchingPorts(portToMatch)->first()
+		else null
+	endif
+		
+def: getFuncPortsInSameDirection : Set(Port)
+	= Model::getFunctionalDevices.ownedPort()
+		->select(p : Port | Class::getDirection(getMatchingPort(p)).toString() = Class::getDirection(p).toString())->asSet()
+		
+inv TestFuncPortsDirectionMatching('The ports ' + setToString(getFuncPortsInSameDirection) 
+	+ ' do not have consistent directions on the functional device and on the top-level function '+ Model::setToString(Class::getTopLevel) + '!'
+)
+	: asError(getFuncPortsInSameDirection->isEmpty())
+
+inv HasFunctionalDevices('There are no functional devices defined.')
+	: getFunctionalDevices->notEmpty()
+
+context Class
+
+/* Returns true if a class has not to be checked (e.g. if it's not a Function) */
+def: hasNotToBeChecked(c : Class) : Boolean
+	= c.getAppliedStereotype('CONSENS::Function') = null
+
+def: getAllClasses : Set(Class)
+	= Class.allInstances()->select(c | hasNotToBeChecked(c) = false)
+
+/* ID and purpose comments */
+inv TestIdComments('The function ' + self.name + ' contains no ID comment - is it new?')
+	: self.ownedComment->select(c : Comment | c._body.toString().startsWith('ID:'))->notEmpty() or hasNotToBeChecked(self)
+
+inv TestPurposeComments('The function ' + self.name + ' contains no purpose comment - is it new?')
+	: self.ownedComment->select(c : Comment | c._body.toString().startsWith('Purpose:'))->notEmpty() or hasNotToBeChecked(self)
+					
+def: getTopLevel : Set(Class)
+	= getAllClasses
+		->select(c : Class | 
+			c.ownedAttribute
+				->select(prop | 
+					prop.type.oclIsTypeOf(Class)
+					and 
+					prop.aggregation = AggregationKind::none
+				)
+			->isEmpty() 
+			and
+			c.ownedAttribute
+				->select(prop |
+					prop.type.oclIsTypeOf(Class) 
+					and 
+					prop.aggregation = AggregationKind::composite
+				)
+			->notEmpty()
+		)
+
+def: getLeafClasses : Set(Class)
+	= getAllClasses
+		->select(c | c.ownedAttribute
+			->select(prop | 
+				prop.type.oclIsTypeOf(Class) 
+				and 
+				prop.aggregation = AggregationKind::composite
+			)
+				->isEmpty()
+			and
+			c.ownedAttribute
+			->select(prop | 
+				prop.type.oclIsTypeOf(Class) 
+				and 
+				prop.aggregation = AggregationKind::none
+			)
+				->notEmpty()
+		)
+
+/* Parent and child ports */
+def: getParentPorts: Set(Port)
+	= self.ownedAttribute
+		->select(prop | prop.type.oclIsTypeOf(Class) and 
+			prop.aggregation = AggregationKind::none
+		)
+			.type.oclAsType(Class).ownedPort->asSet()
+
+def: getParentPort(me: Port): Port
+	= if getParentPorts->select(parent | parent.name = me.name)->notEmpty()
+		then getParentPorts->select(parent | parent.name = me.name)->asSequence()->first()
+		else null
+		endif
+
+def: getChildPorts: Set(Port)
+	= self.ownedAttribute
+		->select(prop | prop.type.oclIsTypeOf(Class) and
+		 	prop.aggregation = AggregationKind::composite
+		 )
+			.type.oclAsType(Class).ownedPort->asSet()
+
+def: portsNotDefinedInParent : Set(Port) = self.ownedPort->select(p | getParentPorts.name->excludes(p.name))
+inv HasPortsNotDefinedInParent('The ports '
+	+ Model::setToString(portsNotDefinedInParent)
+	+ ' of the function ' + self.name + ' are not defined in any of its parent functions!')
+	: Model::asError(
+		Model::getFunctionalDevices.name->includes(self.name) /* this class is not a functional device */
+		or portsNotDefinedInParent->isEmpty() /* or it has no ports that are not defined in its parent classes*/
+		or getTopLevel.name->includes(self.name) /* or is not a top-level-class */
+		or hasNotToBeChecked(self) /* or it doesn't have to be checked */
+	)
+
+def: portsNotUsedInChildren : Set(Port) = self.ownedPort->select(p | getChildPorts.name->excludes(p.name))
+inv HasPortsNotUsedInChildren('The ports '
+	+ Model::setToString(portsNotUsedInChildren)
+	+ ' of the function ' + self.name + ' are not used by any of its child functions.')
+	: 	Model::getFunctionalDevices.name->includes(self.name) /* this class is not a functional device */
+		or portsNotUsedInChildren->isEmpty()
+		or getLeafClasses.name->includes(self.name)
+		or hasNotToBeChecked(self)
+
+def: portsWithDifferentDirection : Set(Port) 
+	= self.ownedPort->select(p | getParentPort(p) <> null and getDirection(getParentPort(p)) <> getDirection(p))
+inv HasParentPortsWithDifferentDirection('The ports '
+	+ Model::setToString(portsWithDifferentDirection)
+	+ ' of the function ' + self.name + ' have a different direction in the parent function!'
+)
+	: Model::asError(portsWithDifferentDirection->isEmpty() or hasNotToBeChecked(self))
+
+
+/* Incoming and outgoing ports */
+def: getDirection(p : Port) : String
+	= 	if p = null or p.getAppliedStereotype('SysML::PortAndFlows::FlowPort') = null
+		then 'none'
+		else p.getValue(
+				p.getAppliedStereotype('SysML::PortAndFlows::FlowPort'), 'direction'
+			).toString()
+		endif
+
+def: getIncomingPorts : Set (Port)
+	= self.ownedPort
+		->select(p | p.getAppliedStereotype('SysML::PortAndFlows::FlowPort') <> null 
+			and p.getValue(
+			p.getAppliedStereotype('SysML::PortAndFlows::FlowPort'), 'direction'
+		) = SysML::portandflows::FlowDirection::_in)
+
+inv TestHasIncoming('The function ' + self.name + ' has no incoming ports.')
+	: 	getIncomingPorts
+		->notEmpty()
+		or hasNotToBeChecked(self)
+		
+def: getOutgoingPorts : Set (Port)
+	= self.ownedPort
+		->select(p | p.getAppliedStereotype('SysML::PortAndFlows::FlowPort') <> null 
+			and p.getValue(
+			p.getAppliedStereotype('SysML::PortAndFlows::FlowPort'), 'direction'
+		) = SysML::portandflows::FlowDirection::_out)
+
+inv TestHasOutgoing('The function ' + self.name + ' has no outgoing ports.')
+	: 	getOutgoingPorts
+		->notEmpty()
+		or hasNotToBeChecked(self)
+
+endpackage
+

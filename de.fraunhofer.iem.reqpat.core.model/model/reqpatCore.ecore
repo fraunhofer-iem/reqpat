@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://de.fraunhofer.iem.reqpat.core.model" nsPrefix="de.fraunhofer.iem.reqpat.core">
+  <eClassifiers xsi:type="ecore:EClass" name="Specification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specObjects" upperBound="-1"
+        eType="#//SpecObject" containment="true" eOpposite="#//SpecObject/specification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecObject" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentSpecObject" eType="#//SpecObject"
+        changeable="false" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specification" eType="#//Specification"
+        eOpposite="#//Specification/specObjects"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementPatternSpecObject" eSuperTypes="#//SpecObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementPatterns" upperBound="-1"
+        eType="#//RequirementPattern" containment="true" eOpposite="#//RequirementPattern/specObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HeadingSpecObject" eSuperTypes="#//SpecObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementPattern" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specObject" eType="#//RequirementPatternSpecObject"
+        eOpposite="#//RequirementPatternSpecObject/requirementPatterns"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FreeTextSpecObject" eSuperTypes="#//SpecObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freeText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

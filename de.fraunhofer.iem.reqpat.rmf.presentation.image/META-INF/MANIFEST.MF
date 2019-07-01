@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.iem.reqpat.rmf.presentation.image
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.rmf.presentation.image;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.inject;bundle-version="3.0.0",
+ org.eclipse.rmf.reqif10.pror.editor;bundle-version="0.7.1",
+ de.fraunhofer.iem.reqpat.core;bundle-version="1.0.0",
+ de.fraunhofer.iem.reqpat.rmf;bundle-version="1.0.0",
+ org.eclipse.rmf.reqif10.xhtml;bundle-version="0.11.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: de.fraunhofer.iem.reqpat.rmf.presentation.image

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://de.fraunhofer.iem.reqpat.demo.model" nsPrefix="de.fraunhofer.iem.reqpat.demo">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalDevice" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisFunction" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAnalysisFunction"
+        eType="#//AnalysisFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Information" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalDeviceDefinition" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionalDevice" eType="#//FunctionalDevice"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisFunctionDefinition" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubAnalysisFunctionDefinition" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IncomingInformationDefinition" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionalDevice" eType="#//FunctionalDevice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="informationList" upperBound="-1"
+        eType="#//Information" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutgoingInformationDefinition" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionalDevice" eType="#//FunctionalDevice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="informationList" upperBound="-1"
+        eType="#//Information" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationUsage" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="informationList" upperBound="-1"
+        eType="#//Information"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationCreation" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="informationList" upperBound="-1"
+        eType="#//Information"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisFunctionPurpose" eSuperTypes="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore#//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisFunction" eType="#//AnalysisFunction"/>
+  </eClassifiers>
+</ecore:EPackage>

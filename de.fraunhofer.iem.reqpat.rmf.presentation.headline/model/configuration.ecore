@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration"
+    nsURI="http://eclipse.org/rmf/pror/toolextensions/1.0" nsPrefix="configuration">
+  <eClassifiers xsi:type="ecore:EClass" name="ProrToolExtension" eSuperTypes="reqif10.ecore#//ReqIFToolExtension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specViewConfigurations"
+        upperBound="-1" eType="#//ProrSpecViewConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalConfiguration" lowerBound="1"
+        eType="#//ProrGeneralConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentationConfigurations"
+        lowerBound="1" eType="#//ProrPresentationConfigurations" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProrSpecViewConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specification" lowerBound="1"
+        eType="ecore:EClass reqif10.ecore#//Specification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//Column" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftHeaderColumn" lowerBound="1"
+        eType="#//Column" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;PLEASE SET LABEL>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="100"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfigurations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentationConfigurations"
+        upperBound="-1" eType="#//ProrPresentationConfiguration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProrPresentationConfiguration" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
+        eType="ecore:EClass reqif10.ecore#//DatatypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProrGeneralConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelConfiguration" lowerBound="1"
+        eType="#//LabelConfiguration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLabel" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ReqPat Core
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.core;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.iem.reqpat.core.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtext.ui;bundle-version="2.3.1",
+ org.eclipse.uml2.uml;bundle-version="5.1.2"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.google.inject.multibindings;
+  uses:="com.google.inject.internal.util,
+   com.google.inject.binder,
+   com.google.inject.spi,
+   com.google.inject,
+   new com.google.inject.multibindings",
+ de.fraunhofer.iem.reqpat.core;
+  uses:="de.fraunhofer.iem.reqpat.core.interfaces,
+   org.eclipse.core.runtime,
+   org.eclipse.xtext.resource,
+   org.osgi.framework,
+   com.google.inject",
+ de.fraunhofer.iem.reqpat.core.common,
+ de.fraunhofer.iem.reqpat.core.interfaces;
+  uses:="org.eclipse.core.runtime,
+   org.eclipse.ui,
+   org.eclipse.xtext.ui.editor.embedded,
+   org.eclipse.xtext.resource,
+   com.google.inject"
+Bundle-ClassPath: .
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

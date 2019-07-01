@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.image.provider.ImagePresentationServiceItemProviderAdapterFactory"
+            uri="http://de.fraunhofer.iem.reqpat.rmf.presentation.image"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource">
+      </factory>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://de.fraunhofer.iem.reqpat.rmf.presentation.image"
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.image.ImagePresentationServicePackage"
+            genModel="model/imagepresentationservice.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="imagepresentationservice"
+            class="de.fraunhofer.iem.reqpat.rmf.presentation.image.util.ImagePresentationServiceResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="org.eclipse.rmf.reqif10.pror.editor.presentation">
+      <presentation
+            name="ImagePresentationService"
+            service="de.fraunhofer.iem.reqpat.rmf.presentation.image.ui.ImagePresentationService">
+      </presentation>
+   </extension>
+
+
+
+
+
+
+
+
+</plugin>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.iem.reqpat.core.model/src"
+    modelPluginID="de.fraunhofer.iem.reqpat.core.model" modelName="ReqpatCore" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>reqpatCore.ecore</foreignModel>
+  <genPackages prefix="CoreModel" basePackage="de.fraunhofer.iem.reqpat.core" disposableProviderFactory="true"
+      ecorePackage="reqpatCore.ecore#/">
+    <genClasses ecoreClass="reqpatCore.ecore#//Specification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqpatCore.ecore#//Specification/specObjects"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqpatCore.ecore#//SpecObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatCore.ecore#//SpecObject/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatCore.ecore#//SpecObject/parentSpecObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatCore.ecore#//SpecObject/parent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqpatCore.ecore#//SpecObject/specification"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatCore.ecore#//RequirementPatternSpecObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqpatCore.ecore#//RequirementPatternSpecObject/requirementPatterns"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatCore.ecore#//HeadingSpecObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatCore.ecore#//HeadingSpecObject/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqpatCore.ecore#//RequirementPattern">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reqpatCore.ecore#//RequirementPattern/specObject"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatCore.ecore#//FreeTextSpecObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatCore.ecore#//FreeTextSpecObject/freeText"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

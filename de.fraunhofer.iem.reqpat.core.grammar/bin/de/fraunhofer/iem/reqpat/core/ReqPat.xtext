@@ -1,0 +1,95 @@
+/*
+ * @author Markus Fockel, $LastChangedBy: fkl $
+ * @version $Rev: 33 $, $Date: 2013-07-12 13:42:30 +0200 (Fr, 12 Jul 2013) $
+ */
+grammar de.fraunhofer.iem.reqpat.core.ReqPat with org.eclipse.xtext.common.Terminals
+
+//import "http://de.fraunhofer.iem.reqpat.core.model"
+import "platform:/resource/de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Root returns Specification:
+	{Specification} (specObjects+=SpecObj)+;
+
+SpecObj returns SpecObject:
+	SPECOBJECTDELIMITERLEFT (HeadingSO | ReqPatSO | FreeTextSO) SPECOBJECTDELIMITERRIGHT;
+
+HeadingSO returns HeadingSpecObject:
+	{HeadingSpecObject}
+	PARAMDELIMITERLEFT 'H' PARAMDELIMITERRIGHT PARAMDELIMITERLEFT id=ID PARAMDELIMITERRIGHT (PARAMDELIMITERLEFT
+	parent=STRING PARAMDELIMITERRIGHT)?
+	text=STRING;
+
+ReqPatSO returns RequirementPatternSpecObject:
+	{RequirementPatternSpecObject}
+	PARAMDELIMITERLEFT 'RP' PARAMDELIMITERRIGHT PARAMDELIMITERLEFT id=ID PARAMDELIMITERRIGHT (PARAMDELIMITERLEFT
+	parent=STRING PARAMDELIMITERRIGHT)?
+	(requirementPatterns+=RequirementPattern)+;
+
+FreeTextSO returns FreeTextSpecObject:
+	{FreeTextSpecObject}
+	PARAMDELIMITERLEFT 'F' PARAMDELIMITERRIGHT PARAMDELIMITERLEFT id=ID PARAMDELIMITERRIGHT (PARAMDELIMITERLEFT
+	parent=STRING PARAMDELIMITERRIGHT)?
+	(freeText=STRING)?;
+
+RequirementPattern returns RequirementPattern:
+	{RequirementPattern}
+	'This is a sample requirement pattern.';
+
+terminal PARAMDELIMITERLEFT:
+	'[';
+
+terminal PARAMDELIMITERRIGHT:
+	']';
+
+terminal SPECOBJECTDELIMITERLEFT:
+	'{';
+
+terminal SPECOBJECTDELIMITERRIGHT:
+	'}';
+	
+//Copied from default xtext grammar to add '-' and remove '^'
+terminal ID:
+	('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '-' | '0'..'9')*;
+
+	//Generated default grammar:
+//Specification returns Specification:
+//	{Specification}
+//	'Specification'
+//	'{'
+//		('specObjects' '{' specObjects+=SpecObject ( "," specObjects+=SpecObject)* '}' )?
+//	'}';
+//
+//SpecObject returns SpecObject:
+//	RequirementPatternSpecObject | HeadingSpecObject | FreeTextSpecObject;
+//
+//
+//EString returns ecore::EString:
+//	STRING | ID;
+//
+//RequirementPatternSpecObject returns RequirementPatternSpecObject:
+//	{RequirementPatternSpecObject}
+//	'RequirementPatternSpecObject'
+//	'{'
+//		('id' id=EString)?
+//		('parentSpecObject' parentSpecObject=[SpecObject|EString])?
+//		('requirementPatterns' '{' requirementPatterns+=RequirementPattern ( "," requirementPatterns+=RequirementPattern)* '}' )?
+//	'}';
+//
+//HeadingSpecObject returns HeadingSpecObject:
+//	{HeadingSpecObject}
+//	'HeadingSpecObject'
+//	'{'
+//		('id' id=EString)?
+//		('text' text=EString)?
+//		('parentSpecObject' parentSpecObject=[SpecObject|EString])?
+//	'}';
+//
+//FreeTextSpecObject returns FreeTextSpecObject:
+//	{FreeTextSpecObject}
+//	'FreeTextSpecObject'
+//	'{'
+//		('id' id=EString)?
+//		('freeText' freeText=EString)?
+//		('parentSpecObject' parentSpecObject=[SpecObject|EString])?
+//	'}';

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.fraunhofer.iem.reqpat.rmf.ReqPatWizardCategory"
+            class="de.fraunhofer.iem.reqpat.rmf.wizard.ReqPatWizard"
+            finalPerspective="de.fraunhofer.ipt.em.swt.isae.embeddedxtexteditor.RmfPerspective"
+            icon="icons/reqPatModel.png"
+            id="de.fraunhofer.iem.reqpat.rmf.ReqPatWizard"
+            name="ReqPat Model">
+      </wizard>
+      <category
+            id="de.fraunhofer.iem.reqpat.rmf.ReqPatWizardCategory"
+            name="ReqPat">
+      </category>
+   </extension>
+   <extension
+         point="de.fraunhofer.iem.reqpat.core.modules">
+      <module
+            class="de.fraunhofer.iem.reqpat.rmf.wizard.modules.ReqPatWizardModule">
+      </module>
+   </extension>
+
+</plugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.iem.reqpat.demo.model/src"
+    modelPluginID="de.fraunhofer.iem.reqpat.demo.model" modelName="ReqpatDemo" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../de.fraunhofer.iem.reqpat.core.model/model/reqpatCore.genmodel#//model">
+  <foreignModel>reqpatDemo.ecore</foreignModel>
+  <genPackages prefix="DemoModel" basePackage="de.fraunhofer.iem.reqpat.demo" disposableProviderFactory="true"
+      ecorePackage="reqpatDemo.ecore#/">
+    <genClasses image="false" ecoreClass="reqpatDemo.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatDemo.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//FunctionalDevice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatDemo.ecore#//FunctionalDevice/purpose"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//AnalysisFunction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//AnalysisFunction/parentAnalysisFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//Information"/>
+    <genClasses ecoreClass="reqpatDemo.ecore#//FunctionalDeviceDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//FunctionalDeviceDefinition/functionalDevice"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//AnalysisFunctionDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//AnalysisFunctionDefinition/analysisFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//SubAnalysisFunctionDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//SubAnalysisFunctionDefinition/analysisFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//IncomingInformationDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//IncomingInformationDefinition/functionalDevice"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//IncomingInformationDefinition/analysisFunction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//IncomingInformationDefinition/informationList"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//OutgoingInformationDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//OutgoingInformationDefinition/analysisFunction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//OutgoingInformationDefinition/functionalDevice"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//OutgoingInformationDefinition/informationList"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//InformationUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//InformationUsage/analysisFunction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//InformationUsage/informationList"/>
+    </genClasses>
+    <genClasses ecoreClass="reqpatDemo.ecore#//InformationCreation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//InformationCreation/analysisFunction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//InformationCreation/informationList"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reqpatDemo.ecore#//Function"/>
+    <genClasses ecoreClass="reqpatDemo.ecore#//AnalysisFunctionPurpose">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reqpatDemo.ecore#//AnalysisFunctionPurpose/purpose"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reqpatDemo.ecore#//AnalysisFunctionPurpose/analysisFunction"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

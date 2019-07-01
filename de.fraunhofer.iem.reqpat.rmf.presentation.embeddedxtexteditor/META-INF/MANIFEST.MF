@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.xtext.ui;bundle-version="2.3.1",
+ org.eclipse.rmf.reqif10.pror.editor;bundle-version="0.7.1",
+ de.fraunhofer.iem.reqpat.core;bundle-version="1.0.0",
+ de.fraunhofer.iem.reqpat.rmf;bundle-version="1.0.0",
+ org.eclipse.rmf.reqif10.xhtml;bundle-version="0.11.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Activator: de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor.Activator
+Bundle-ActivationPolicy: lazy
+Export-Package: de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

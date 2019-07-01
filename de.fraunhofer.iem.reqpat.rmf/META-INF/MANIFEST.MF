@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ReqPat Core RMF
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.rmf
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.iem.reqpat.rmf.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtext;bundle-version="2.3.1",
+ org.eclipse.rmf.reqif10;bundle-version="0.7.1",
+ org.eclipse.rmf.reqif10.pror.editor;bundle-version="0.7.1"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.fraunhofer.iem.reqpat.rmf.exceptions,
+ de.fraunhofer.iem.reqpat.rmf.interfaces
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

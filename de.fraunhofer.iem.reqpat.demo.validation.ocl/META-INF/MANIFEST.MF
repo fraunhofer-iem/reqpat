@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ReqPat Demo OCL Validation
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.demo.validation.ocl;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.iem.reqpat.demo.validation.ocl.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ com.google.inject;bundle-version="3.0.0",
+ de.fraunhofer.iem.reqpat.core;bundle-version="1.0.0",
+ de.fraunhofer.iem.reqpat.core.validation;bundle-version="1.0.0",
+ org.eclipse.xtext;bundle-version="2.3.1",
+ de.fraunhofer.iem.reqpat.demo.model;bundle-version="1.0.0",
+ org.eclipse.ocl.pivot.uml,
+ org.eclipse.ocl.xtext.completeocl,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.emf.validation,
+ org.eclipse.uml2.uml,
+ org.eclipse.ocl.uml
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.eclipse.uml2.uml
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

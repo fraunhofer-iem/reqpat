@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rmfextension
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.rmf.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.iem.reqpat.rmf.ui.Activator
+Require-Bundle: org.eclipse.rmf.reqif10.pror.editor;bundle-version="0.7.1",
+ org.eclipse.rmf.reqif10.pror.presentation.id;bundle-version="0.7.1",
+ de.fraunhofer.iem.reqpat.core;bundle-version="1.0.0",
+ de.fraunhofer.iem.reqpat.rmf;bundle-version="1.0.0",
+ com.google.inject;bundle-version="3.0.0",
+ org.eclipse.rmf.reqif10.serialization;bundle-version="0.11.0",
+ org.eclipse.sphinx.emf.serialization;bundle-version="0.9.1"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM

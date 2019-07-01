@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.iem.reqpat.demo.model
+Bundle-SymbolicName: de.fraunhofer.iem.reqpat.demo.model;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Copyright (c) 2011-2019 Fraunhofer IEM
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.fraunhofer.iem.reqpat.demo.model,
+ de.fraunhofer.iem.reqpat.demo.model.impl,
+ de.fraunhofer.iem.reqpat.demo.model.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ de.fraunhofer.iem.reqpat.core.model;visibility:=reexport
+Bundle-ActivationPolicy: lazy
