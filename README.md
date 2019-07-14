@@ -11,6 +11,15 @@
 - Reduced effort for requirements reviews and transition to model-based development
 - Improved traceability and impact analysis from textual requirements to model-based work products
 
+#### Constructive Support for Requirements Documentation
+- Context-based pattern suggestions
+- Auto completion
+- Error highlighting
+
+#### Automatic Analyses for Requirements Validation
+- Syntactic checks while writing
+- Semantic checks by the press of a button
+
 ### Installation
 Tested with Eclipse Release "2019-06"
 
@@ -27,15 +36,6 @@ Tested with Eclipse Release "2019-06"
 	- Sphinx
 4. Clone the ReqPat Git Repository into your Eclipse workspace
 5. Create a new "Run Configuration" in Eclipse of type "Eclipse Application"
-
-#### Constructive Support for Requirements Documentation
-- Context-based pattern suggestions
-- Auto completion
-- Error highlighting
-
-#### Automatic Analyses for Requirements Validation
-- Syntactic checks while writing
-- Semantic checks by the press of a button
 
 ### Publications
 Fockel, Markus: Safety Requirements Engineering for Early SIL Tailoring. PhD thesis, Faculty for Computer Science, Electrical Engineering and Mathematics, Paderborn University, Dec 2018
