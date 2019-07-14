@@ -6,8 +6,12 @@
 - Increasing size of requirements specifications
 - Required compliance to domain-specific development standards
 
-### Installation
+### Benefits
+- High-quality requirements by design
+- Reduced effort for requirements reviews and transition to model-based development
+- Improved traceability and impact analysis from textual requirements to model-based work products
 
+### Installation
 Tested with Eclipse Release "2019-06"
 
 1. Download, install and run [Eclipse Modeling Tools 2019-06](https://www.eclipse.org/downloads/packages/)
@@ -23,11 +27,6 @@ Tested with Eclipse Release "2019-06"
 	- Sphinx
 4. Clone the ReqPat Git Repository into your Eclipse workspace
 5. Create a new "Run Configuration" in Eclipse of type "Eclipse Application"
-
-### Benefits
-- High-quality requirements by design
-- Reduced effort for requirements reviews and transition to model-based development
-- Improved traceability and impact analysis from textual requirements to model-based work products
 
 #### Constructive Support for Requirements Documentation
 - Context-based pattern suggestions
