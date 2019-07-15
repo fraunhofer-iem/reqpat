@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor="http://de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.headline="http://de.fraunhofer.iem.reqpat.rmf.presentation.headline" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.image="http://de.fraunhofer.iem.reqpat.rmf.presentation.image" xmlns:id="http://pror.org/presentation/id">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-a524915b-5602-4452-b427-65f868fc6f29">
+      <COMMENT>Created by: fkl</COMMENT>
+      <CREATION-TIME>2015-01-13T17:21:35.893+01:00</CREATION-TIME>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_PqHJg5tAEeSX9Zz03N5aLg" LONG-NAME="ReqPatString"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_PqHJhJtAEeSX9Zz03N5aLg" LONG-NAME="ID"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_PqHJhZtAEeSX9Zz03N5aLg" LONG-NAME="HeadingString"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_PqHJhptAEeSX9Zz03N5aLg" LONG-NAME="ImagePath"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_PqHJh5tAEeSX9Zz03N5aLg" LONG-NAME="T_String32k"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_PqHJiJtAEeSX9Zz03N5aLg" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJiZtAEeSX9Zz03N5aLg" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhJtAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJiptAEeSX9Zz03N5aLg" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJg5tAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_PqHJi5tAEeSX9Zz03N5aLg" LONG-NAME="Heading">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJjJtAEeSX9Zz03N5aLg" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhJtAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJjZtAEeSX9Zz03N5aLg" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhZtAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_PqHJjptAEeSX9Zz03N5aLg" LONG-NAME="Free Text">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJj5tAEeSX9Zz03N5aLg" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhJtAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJkJtAEeSX9Zz03N5aLg" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJh5tAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_PqHJkZtAEeSX9Zz03N5aLg" LONG-NAME="Image">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJkptAEeSX9Zz03N5aLg" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhJtAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJk5tAEeSX9Zz03N5aLg" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJhptAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_PqHJlJtAEeSX9Zz03N5aLg" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_PqHJlZtAEeSX9Zz03N5aLg" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_PqHJh5tAEeSX9Zz03N5aLg</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_PqHJlptAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:21:57.909+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjJtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="&lt;TOPLEVELANALYSISFUNCTION>">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJi5tAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_PqHJnJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:22:23.383+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The top-level analysis function is called &lt;TOPLEVELANALYSISFUNCTION>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiptAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJiJtAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Z6DvUJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:22:40.000+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjJtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="External Systems">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJi5tAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_czgosJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:02.031+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjJtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Inputs &amp; Outputs">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJi5tAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_fJkhIJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:17.061+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjJtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Subfunctions">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJjZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJi5tAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_kaY6gJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:52.800+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following information is received by the analysis function &lt;TOPLEVELANALYSISFUNCTION>: &lt;TOPLEVELINPUTS>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiptAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJiJtAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_oSB6cJtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:24:18.479+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-8">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following information is sent from the analysis function &lt;TOPLEVELANALYSISFUNCTION>: &lt;TOPLEVELOUTPUTS>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJiptAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_PqHJiJtAEeSX9Zz03N5aLg</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_PqHJn5tAEeSX9Zz03N5aLg" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_PqHJlZtAEeSX9Zz03N5aLg</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_PqHJlJtAEeSX9Zz03N5aLg</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_PqHJoZtAEeSX9Zz03N5aLg">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_PqHJlptAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_PqHJo5tAEeSX9Zz03N5aLg">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_PqHJnJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_Z63noZtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:22:40.000+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_Z6DvUJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_c0Sr0ZtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:02.031+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_czgosJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_kbKWkZtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:52.800+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_kaY6gJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_oSyvcZtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:24:18.480+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_oSB6cJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_fKRrwZtAEeSX9Zz03N5aLg" LAST-CHANGE="2015-01-13T17:23:17.062+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_fJkhIJtAEeSX9Zz03N5aLg</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_PqHJn5tAEeSX9Zz03N5aLg">
+            <configuration:columns>
+              <configuration:Column label="ID"/>
+              <configuration:Column label="Description" width="600"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor:EmbeddedXtextEditorConfiguration datatype="_PqHJg5tAEeSX9Zz03N5aLg"/>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.headline:HeadlinePresentationServiceConfiguration datatype="_PqHJhZtAEeSX9Zz03N5aLg"/>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.image:ImagePresentationServiceConfiguration datatype="_PqHJhptAEeSX9Zz03N5aLg"/>
+              <id:IdConfiguration datatype="_PqHJhJtAEeSX9Zz03N5aLg" prefix="REQ-" count="8"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>

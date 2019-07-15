@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor="http://de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.headline="http://de.fraunhofer.iem.reqpat.rmf.presentation.headline" xmlns:de.fraunhofer.iem.reqpat.rmf.presentation.image="http://de.fraunhofer.iem.reqpat.rmf.presentation.image" xmlns:id="http://pror.org/presentation/id">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-d50dd5a9-7ad0-4e89-be48-8712ad58a270">
+      <COMMENT>Created by: fkl</COMMENT>
+      <CREATION-TIME>2015-01-13T18:12:19.480+01:00</CREATION-TIME>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_VMBOs5tHEeSTFrrBoxxWaQ" LONG-NAME="ReqPatString"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_VMBOtJtHEeSTFrrBoxxWaQ" LONG-NAME="ID"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_VMBOtZtHEeSTFrrBoxxWaQ" LONG-NAME="HeadingString"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_VMBOtptHEeSTFrrBoxxWaQ" LONG-NAME="ImagePath"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_VMBOt5tHEeSTFrrBoxxWaQ" LONG-NAME="T_String32k"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_VMBOuJtHEeSTFrrBoxxWaQ" LONG-NAME="Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOuZtHEeSTFrrBoxxWaQ" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtJtHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOuptHEeSTFrrBoxxWaQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOs5tHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_VMBOu5tHEeSTFrrBoxxWaQ" LONG-NAME="Heading">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOvJtHEeSTFrrBoxxWaQ" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtJtHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOvZtHEeSTFrrBoxxWaQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtZtHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_VMBOvptHEeSTFrrBoxxWaQ" LONG-NAME="Free Text">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOv5tHEeSTFrrBoxxWaQ" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtJtHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOwJtHEeSTFrrBoxxWaQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOt5tHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_VMBOwZtHEeSTFrrBoxxWaQ" LONG-NAME="Image">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOwptHEeSTFrrBoxxWaQ" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtJtHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOw5tHEeSTFrrBoxxWaQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOtptHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_VMBOxJtHEeSTFrrBoxxWaQ" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_VMBOxZtHEeSTFrrBoxxWaQ" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_VMBOt5tHEeSTFrrBoxxWaQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_VMBOxptHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:12:33.187+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvJtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="&lt;ANALYSISFUNCTION>">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOu5tHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_VMBOyZtHEeSTFrrBoxxWaQ">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOv5tHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Sample Free-Text Requirement">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOwJtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOvptHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_VMBOzJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:13:12.200+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The analysis function &lt;ANALYSISFUNCTION> is a subfunction of the analysis function &lt;PARENTFUNCTION>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuptHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOuJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_fN7YgJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:13:23.731+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The analysis function &lt;ANALYSISFUNCTION> has the following purpose: &quot;PURPOSE&quot;.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuptHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOuJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_leR8QJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:13:56.432+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvJtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Inputs &amp; Outputs">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOu5tHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_nM4zIJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:14:17.189+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvJtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Subfunctions">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOvZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOu5tHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_p9X9wJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:14:35.172+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following information is used by the analysis function &lt;ANALYSISFUNCTION>: &lt;INPUTS>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuptHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOuJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_w4Cp0JtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:15:21.238+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ-8">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following information is created by the analysis function &lt;ANALYSISFUNCTION>: &lt;OUTPUTS>.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOuptHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_VMBOuJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_VMBOz5tHEeSTFrrBoxxWaQ" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements Document">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_VMBOxZtHEeSTFrrBoxxWaQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_VMBOxJtHEeSTFrrBoxxWaQ</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_VMBO0ZtHEeSTFrrBoxxWaQ">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_VMBOxptHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_VMBO05tHEeSTFrrBoxxWaQ">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_VMBOzJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_fOtboZtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:13:23.731+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_fN7YgJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_le_t8ZtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:13:56.432+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_leR8QJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_p-CFEJtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:14:35.172+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_p9X9wJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_w4q78ZtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:15:21.238+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_w4Cp0JtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_nNhsUZtHEeSTFrrBoxxWaQ" LAST-CHANGE="2015-01-13T18:14:17.189+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_nM4zIJtHEeSTFrrBoxxWaQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_VMBOz5tHEeSTFrrBoxxWaQ">
+            <configuration:columns>
+              <configuration:Column label="ID"/>
+              <configuration:Column label="Description" width="600"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.embeddedxtexteditor:EmbeddedXtextEditorConfiguration datatype="_VMBOs5tHEeSTFrrBoxxWaQ"/>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.headline:HeadlinePresentationServiceConfiguration datatype="_VMBOtZtHEeSTFrrBoxxWaQ"/>
+              <de.fraunhofer.iem.reqpat.rmf.presentation.image:ImagePresentationServiceConfiguration datatype="_VMBOtptHEeSTFrrBoxxWaQ"/>
+              <id:IdConfiguration datatype="_VMBOtJtHEeSTFrrBoxxWaQ" prefix="REQ-" count="8"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>

@@ -1,6 +1,8 @@
 # ReqPat
 ### Efficient Documentation of High-Quality Requirements using Controlled Natural Language
 
+![ReqPat Overview](documents/overview.png)
+
 ### Motivation
 - Increasing complexity of intelligent technical systems
 - Increasing size of requirements specifications
