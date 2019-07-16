@@ -3,6 +3,8 @@
 
 ![ReqPat Overview](documents/overview.png)
 
+Watch a short [intro video](https://youtu.be/ABHAuItsoaQ)
+
 ### Motivation
 - Increasing complexity of intelligent technical systems
 - Increasing size of requirements specifications
