@@ -27,17 +27,18 @@ Tested with Eclipse Release "2019-06"
 
 1. Download, install and run [Eclipse Modeling Tools 2019-06](https://www.eclipse.org/downloads/packages/)
 2. Add the following update sites using the "Install new software" menu entry in the "Help" menu
-    - RMF Update Site: http://download.eclipse.org/rmf/updates/releases
-    - UnitTests: https://dl.bintray.com/itemis/generic/xtext-testing/updates/
     - Sphinx: http://download.eclipse.org/sphinx/releases/0.11.x
+    - RMF Update Site: http://download.eclipse.org/rmf/updates/releases
+    - (Optional) UnitTests: https://dl.bintray.com/itemis/generic/xtext-testing/updates/
 3. Install the following extensions:
-	- XText SDK
-	- RMF SDK
+	- XText Complete SDK
+	- Sphinx Runtime
+	- RMF
 	- OCL Examples and Editors SDK
-	- XText Testing (for the unit tests)
-	- Sphinx
+	- (Optional) XText Testing (for the unit tests)
 4. Clone the ReqPat Git Repository into your Eclipse workspace
-5. Create a new "Run Configuration" in Eclipse of type "Eclipse Application"
+5. Create and run a new "Run Configuration" in Eclipse of type "Eclipse Application"
+6. Copy the "Templates" project into the runtime workspace
 
 ### Publications
 Fockel, Markus: Safety Requirements Engineering for Early SIL Tailoring. PhD thesis, Faculty for Computer Science, Electrical Engineering and Mathematics, Paderborn University, Dec 2018
