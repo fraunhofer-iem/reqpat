@@ -39,6 +39,7 @@ Tested with Eclipse Release "2019-06"
 4. Clone the ReqPat Git Repository into your Eclipse workspace
 5. Create and run a new "Run Configuration" in Eclipse of type "Eclipse Application"
 6. Copy the "Templates" project into the runtime workspace
+7. Read the [User Guide](documents/ReqPat-RMF_UserGuide_Tutorial.pdf)
 
 ### Publications
 Fockel, Markus: Safety Requirements Engineering for Early SIL Tailoring. PhD thesis, Faculty for Computer Science, Electrical Engineering and Mathematics, Paderborn University, Dec 2018
